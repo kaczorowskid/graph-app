@@ -1,6 +1,6 @@
 import Queue from '../utils/Queue';
 import IGraphModel from './models/IGraphModel';
-import { IMyObjectType, Array2D } from '../../types/graphTypes'
+import { IMyObjectType, Array2D } from '../types/graphTypes'
 
 export default class Graph implements IGraphModel {
     edges: { [key: string]: Array<number> } = {};

@@ -1,7 +1,7 @@
 import readline from 'readline';
 import Graph from '../modules_graph/Graph';
 import Helper from '../utils/Helper';
-import { Array2D } from '../../types/graphTypes'
+import { Array2D } from '../types/graphTypes'
 
 export default class Menu {
 
