@@ -8,9 +8,3 @@ const startup: Startup = new Startup('doom');
     await startup.printStartupScreen('GraphApp');
     menu.start();
 })()
-
-
-
-
-
-
