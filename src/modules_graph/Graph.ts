@@ -2,6 +2,8 @@ import Queue from '../utils/Queue';
 import IGraphModel from './models/IGraphModel';
 import { IMyObjectType, Array2D } from '../types/graphTypes'
 
+import art from 'ascii-art';
+
 export default class Graph implements IGraphModel {
     edges: { [key: string]: Array<number> } = {};
     colors: IMyObjectType<number> = {};
