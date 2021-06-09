@@ -4,19 +4,19 @@ export default class Queue implements IQueue {
   private queue: Array<number> = [];
   private offset = 0;
 
-  public getLength() {
+  public getLength(): number {
     return (this.queue.length - this.offset);
   }
 
-  public isEmpty() {
+  public isEmpty(): boolean {
     return (this.queue.length == 0);
   }
 
-  public enqueue(item: number) {
+  public enqueue(item: number): void {
     this.queue.push(item);
   }
 
-  public dequeue() {
+  public dequeue(): number | undefined {
     if (this.queue.length == 0) return undefined;
     const item = this.queue[this.offset];
 
@@ -27,7 +27,7 @@ export default class Queue implements IQueue {
     return item
   }
 
-  public peek() {
+  public peek(): number | undefined {
     return (this.queue.length > 0 ? this.queue[this.offset] : undefined);
   }
 }

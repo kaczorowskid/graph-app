@@ -9,26 +9,26 @@ export default class Graph implements IGraphModel {
     colors: IMyObjectType<number> = {};
     nodes: Array<number> = [];
 
-    public addVertex(node: number) {
+    public addVertex(node: number): void {
         this.nodes.push(node);
         this.edges[node] = [];
         this.colors[node] = -1;
     }
 
-    public addEdge(node1: number, node2: number) {
+    public addEdge(node1: number, node2: number): void {
         if (node1 !== node2) {
             this.edges[node1].push(node2);
             this.edges[node2].push(node1);
         }
     }
 
-    public printGraph() {
-        console.log("\n\nGraf:")
+    public printGraph(): void {
+        console.log("\n\Lista sąsiedztwa:")
         console.log(this.nodes.reduce((text: string, node: number) =>
             text += (node + " -> " + [...new Set(this.edges[node])].join(", ") + "\n"), ""))
     }
 
-    public bfs(startingNode: number) {
+    public bfs(startingNode: number): void {
         let visited: IMyObjectType<boolean> = {};
         const q: Queue = new Queue();
         visited[startingNode] = true;
@@ -50,7 +50,7 @@ export default class Graph implements IGraphModel {
         console.log(str)
     }
 
-    public dfs(startingNode: number) {
+    public dfs(startingNode: number): void {
 
         let str: string = ''
 
@@ -71,16 +71,16 @@ export default class Graph implements IGraphModel {
         console.log(str)
     }
 
-    public adjacencyMatrix() {
+    public adjacencyMatrix(): void {
         const inArray: Array2D<number> = Object.values(this.edges).map((row: Array<number>) => [...new Set(row)])
         console.log('\nMacierz sąsiedztwa:')
         const arrLen: number = inArray.length;
         const outArr = Array.from({ length: arrLen }, () => Array.from({ length: arrLen }, () => 0))
         inArray.forEach((row: Array<number>, r: number) => row.forEach((col: number) => outArr[r][col] = 1))
-        console.log(outArr)
+        console.log(outArr.join('\n'))
     }
 
-    public color() {
+    public color(): this {
         this.nodes.forEach(
             (node: number) => this.colors[node] =
                 this.edges[node].map((x: number) => this.colors[x]).
@@ -91,7 +91,7 @@ export default class Graph implements IGraphModel {
         return this;
     }
 
-    public colored() {
+    public colored(): void {
         let colors = ["Czerwony", "Zielony", "Żółty", "Niebieski", "Magenta", "Cyjan", "Biały", "Czarny"]
         let col_arr = [31, 32, 33, 34, 35, 36, 37, 30]
         console.log("\nKolory wierzchołków:")
@@ -100,7 +100,7 @@ export default class Graph implements IGraphModel {
         });
     }
 
-    public getAll() {
+    public getAll(): void {
         this.color();
         this.printGraph();
         this.adjacencyMatrix();

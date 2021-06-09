@@ -1,4 +1,4 @@
-import readline from 'readline';
+import readline, { Interface } from 'readline';
 import Graph from '../modules_graph/Graph';
 import Helper from '../utils/Helper';
 import FileReader from '../utils/FileReader';
@@ -10,7 +10,7 @@ export default class Menu {
     private helper: Helper = new Helper();
     private fileReader: FileReader = new FileReader();
 
-    private rl = readline.createInterface({
+    private rl: Interface = readline.createInterface({
         input: process.stdin,
         output: process.stdout
     });
@@ -26,14 +26,14 @@ export default class Menu {
         })
     }
 
-    private printGraph(val: Array2D<number>) {
+    private printGraph(val: Array2D<number>): void {
         val.forEach((row: Array<number>, r: number) => this.graph.addVertex(r))
         val.forEach((row: Array<number>, r: number) => row.forEach((col: number) => this.graph.addEdge(r, col)))
         this.graph.getAll();
     }
 
 
-    private async switchMenu(val: string) {
+    private async switchMenu(val: string): Promise<void> {
         switch (val) {
             case '1':
                 const adjListInput: string = await this.getInput();
@@ -61,7 +61,7 @@ export default class Menu {
         }
     }
 
-    public start() {
+    public start(): void {
         this.rl.question('Wybierz metode wprowadzania:\n1. Lista sąsiedztwa\n2. Macierz sąsiedztwa\n3. Załaduj z pliku .txt\n', input => {
             this.switchMenu(input)
         })
