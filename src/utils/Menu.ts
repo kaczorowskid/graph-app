@@ -18,7 +18,7 @@ export default class Menu {
     private getInput():Promise<string> {
         return new Promise((resolve, reject) => {
             let str: string = ''
-            console.log('wpisz')
+            console.log('\nWpisz graf:')
             this.rl.on('line', input => {
                 str += input + '\n';
                 if (input.toLowerCase() == 'e') resolve(str)
@@ -46,7 +46,7 @@ export default class Menu {
                 this.printGraph(matrix);
                 process.exit();
             case '3':
-                const txtData: string | undefined = this.fileReader.read();
+                const txtData: string = this.fileReader.read();
                 const typeData = this.helper.joinString(txtData)
                 if(typeData == '10') {
                     const txtArrayVal: Array2D<number> = this.helper.stringToArray(txtData)

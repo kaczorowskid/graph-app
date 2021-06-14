@@ -13,4 +13,10 @@ export default class Helper {
     public joinString(data: string): string {
         return `${data[0]}${data[1]}`
     }
+
+    public randomInt(min: number, max: number) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 }
