@@ -22,7 +22,7 @@ neighborhood matrix or by loading them from a .txt file
 
  An example graph written as a neighborhood list and a neighborhood matrix:
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/57078565/121878488-10cb6980-cd0c-11eb-9315-28cee140d60d.png">
+  <img src="https://user-images.githubusercontent.com/57078565/121879116-c7c7e500-cd0c-11eb-90cd-ae7362d8160a.png">
 </p>
 
 ```
