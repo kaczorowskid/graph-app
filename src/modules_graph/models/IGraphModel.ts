@@ -4,4 +4,5 @@ export default interface IGraphModel {
     printGraph: () => void;
     bfs: (startingNode: number) => void;
     dfs: (startingNode: number) => void;
+    color: (rand: boolean) => this;
 }

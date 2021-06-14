@@ -107,13 +107,9 @@ export default class Graph implements IGraphModel {
             (node: number) => {
                 let num: any = rand ? this.helper.randomInt(1, 4) : 1
                 return this.colors[node] =
-                //pobierz sąsiadów
                 this.edges[node].map((x: number) => this.colors[x]). 
-                    //jeżeli -1 to usuń
                     filter((color: number) => color >= 0). 
-                    //sortuj od najmniejszego
                     sort((a: number, b: number) => a - b). 
-                    //pobierz najmniejszy kolro
                     reduce((current: number, next: number) => current === next ? current += num : current , 0) 
             })
         return this;
